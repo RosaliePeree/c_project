@@ -1,17 +1,16 @@
 /*
  ============================================================================
- Name        : exo2.c
+ Name        :  exo4.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Ecrire un programme qui réalise les calculs suivants et qui affiche chacune 
+			des valeurs de la variable entière X
+  			X = -3 + 4 * 5 –6
+  			X = (-3 + 4) * 5 –6
+  			X = -3 + (4 * 5) –6
+  			X = -3 + 4 * (5 –6)
  ============================================================================
- Ecrire un programme qui réalise les calculs suivants et qui affiche chacune 
- des valeurs de la variable entière X
- X = -3 + 4 * 5 –6
- X = (-3 + 4) * 5 –6
- X = -3 + (4 * 5) –6
- X = -3 + 4 * (5 –6)
  */
 
 #include <stdio.h>

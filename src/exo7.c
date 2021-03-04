@@ -1,14 +1,14 @@
 /*
  ============================================================================
- Name        : exo1.c
+ Name        : exo7.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Ecrire un programme qui récupère la valeur flottante du rayon d’un cercle et 
+ 			qui en affiche le périmètre et la surface. La constante PI aura la valeur 
+ 			3.14159
  ============================================================================
- Ecrire un programme qui récupère la valeur flottante du rayon d’un cercle et 
- qui en affiche le périmètre et la surface. La constante PI aura la valeur 
- 3.14159
+ 
  */
 
 #include <stdio.h>

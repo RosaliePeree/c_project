@@ -1,12 +1,11 @@
 /*
  ============================================================================
- Name        : exo1.c
+ Name        : exo3.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Ecrire un programme qui affiche à l’écran le texte: « Hello world»
  ============================================================================
- Ecrire un programme qui affiche à l’écran le texte: « Hello world»
  */ 
 
 #include <stdio.h>
