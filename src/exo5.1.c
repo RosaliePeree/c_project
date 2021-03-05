@@ -21,7 +21,7 @@
 #include <stdlib.h>
 
 int main(void) {	
-	float X = 10/3;
+	float X;
 	//le calcul de deux int donne un int (arrondi), qui transformé en float sera juste un int avec des 0s après la virgule
 	printf("la variable flottante X = 10 / 3 : ");
 	X = 10 / 3;
@@ -29,7 +29,7 @@ int main(void) {
 
 	//le calcul de deux int donne un int arrondi.
 	printf("\nla variable entiere X = 10 / 3 : ");
-	int Y = 10/3;
+	int Y;
 	Y = 10 / 3;
 	printf("%d", Y);
 	
