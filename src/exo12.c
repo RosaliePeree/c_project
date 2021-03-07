@@ -45,13 +45,9 @@ int main(void) {
 
 	// Display the results
 	if (count != 1){
-		printf("\n%s", "There are ");
-		printf("%d", count);
-		printf("%s", " vowels in this sentence");
+		printf("\nThere are %d vowels in this sentence", count);
 	} else {		
-		printf("\n%s", "There is ");
-		printf("%d", count);
-		printf("%s", " vowel in this sentence");
+		printf("\nThere is %d vowel in this sentence", count);
 	}
 	return EXIT_SUCCESS;
 }
