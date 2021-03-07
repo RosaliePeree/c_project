@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : exo5.c
+ Name        : exo5.1.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
