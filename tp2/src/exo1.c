@@ -86,7 +86,7 @@ int main(void) {
 	}
 	int shape=0;
 	while(shape>5 || shape<1){
-		printf("Choose a shape :\n");
+		printf("Choose a shape:\n1: square\n2: right triangle\n3: left triangle\n4: triangle\n5: diamond");
 		scanf("%i",&shape);
 	}
 	switch(shape){
