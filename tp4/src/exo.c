@@ -60,13 +60,9 @@ void nouveauContact(){
 
 		do	{	
 		printf("Entrez l'annee de naissance du contact format yyyy : ");
-		read(tmp, 4);	
+		read(tmp, 5);	
 		annee = atoi(tmp);
 		} while (annee<1900 || annee>2022);
-
-
-		read(tmp, 5);
-		annee = atoi(tmp);
 		date anniv;
 		anniv.jour=jour;
 		anniv.mois=mois;

@@ -13,11 +13,14 @@
 #include <stdlib.h>
 #include <conio.h> 
 
+void emptyBuffer();
+int read(char *,int); 
+
 int main(void) {
 	char c;
 	char str[200];
 	int i = 0;
-
+	printf("\nEnter a sentence of mak 199 characters");
 	// Get the array of text 
 	do {
 		if (i > sizeof(str) - 1)
@@ -51,3 +54,6 @@ int main(void) {
 	}
 	return EXIT_SUCCESS;
 }
+
+
+

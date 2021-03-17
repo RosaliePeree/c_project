@@ -19,6 +19,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h> 
+#include <string.h>
+
+void emptyBuffer();
+
+int read(char *chain, int length);
 
 int main(void) {
 	float first;
@@ -29,12 +34,16 @@ int main(void) {
 	do {
 		printf("\nCalculator. Press 's' to exit");
 		printf("\nSelect an operation: /, *, -, +");
-		c = getch();		
+		char tmp[15];
+		read(tmp, 1);	
+		c = tmp[0];
 		printf("\nOperation selected: %c", c);
 		printf("\nEnter a number (float)");	
-		scanf("%f", &first);
+		read(tmp, 14);	
+		first = atof(tmp);	
 		printf("\nEnter a number (float)");	
-		scanf("%f", &second);
+		read(tmp, 14);	
+		second = atof(tmp);
 		if (c == '/')
 			printf("\nResult : %f", first / second);
 		else
@@ -55,12 +64,16 @@ int main(void) {
 		printf("\n\n***********************************");
 		printf("\nCalculator. Press 's' to exit");
 		printf("\nSelect an operation: /, *, -, +");
-		c = getch();		
+		char tmp[15];
+		read(tmp, 1);	
+		c = tmp[0];	
 		printf("\nOperation selected: %c", c);
 		printf("\nEnter a number (float)");	
-		scanf("%f", &first);
+		read(tmp, 14);	
+		first = atof(tmp);	
 		printf("\nEnter a number (float)");	
-		scanf("%f", &second);
+		read(tmp, 14);	
+		second = atof(tmp);
 		switch (c){
 			case '/':		
 				printf("\nResult : %f", first / second);
@@ -80,4 +93,38 @@ int main(void) {
 	} while(c != 's');
 
 	return EXIT_SUCCESS;
+}
+
+
+
+void emptyBuffer(){
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
+ 
+int read(char *chain, int length)
+{
+    char *entry = NULL;
+ 
+    if (fgets(chain, length, stdin) != NULL)
+    {
+        entry = strchr(chain, '\n');
+        if (entry != NULL)
+        {
+            *entry = '\0';
+        }
+        else
+        {
+            emptyBuffer();
+        }
+        return 1;
+    }
+    else
+    {
+        emptyBuffer();
+        return 0;
+    }
 }
