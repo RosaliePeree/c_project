@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "degre.h"
 
-int main(){
+int main(void){
 	printf(" 15 Celsius equals %f Fahrenheit\n",CelsiusAFahrenheit(15.0));
 	printf(" 15 Fahrenheit equals %f Celsius\n",FahrenheitACelsius(15.0));
 	printf(" 15 Celsius equals %f Kelvin\n",CelsiusAKelvin(15.0));

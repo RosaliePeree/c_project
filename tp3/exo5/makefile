@@ -2,7 +2,7 @@ HOME= .
 BIN = $(HOME)/bin/$(ARCH)
 SRC= $(HOME)/src
 OBJ= $(HOME)/obj
-.c= $(SRC)/degre.c
+.c=  $(SRC)/degre.c $(SRC)/read.c
 ARCH = $(shell uname -s)-$(shell uname -m)
 
 #DEFS= -DDEBUG

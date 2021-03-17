@@ -18,23 +18,66 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "exo.h"
 
+void emptyBuffer();
+ 
+int read(char*,int);
+
 int main(){
+	char tmp[15];
 	int first, second;
-	printf("\nEnter an integer");
-	scanf("%d", &first);
-	printf("\nEnter an integer");
-	scanf("%d", &second);
+	printf("\nEnter an integer (14 char)");
+	read(tmp, 14);	
+	first = atoi(tmp);
+	printf("\nEnter an integer (14 char)");
+	read(tmp, 14);	
+	second = atoi(tmp);
 	printf("\nCompare : %d", compareInt1(first, second));
 	printf("\nCompare : %c", compareInt2(first, second));
 
 
 	int third, fourth;
-	printf("\nEnter a float");
-	scanf("%d", &third);
-	printf("\nEnter a float");
-	scanf("%d", &fourth);
+	printf("\nEnter a float (14 char)");
+	read(tmp, 14);	
+	third = atof(tmp);
+	printf("\nEnter a float (14 char)");
+	read(tmp, 14);	
+	fourth = atoi(tmp);
 	printf("\nCompare : %d", compareFloat1(third, fourth));
 	printf("\nCompare : %c", compareFloat2(third, fourth));
+}
+
+
+void emptyBuffer(){
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
+ 
+int read(char *chain, int length)
+{
+    char *entry = NULL;
+ 
+    if (fgets(chain, length, stdin) != NULL)
+    {
+        entry = strchr(chain, '\n');
+        if (entry != NULL)
+        {
+            *entry = '\0';
+        }
+        else
+        {
+            emptyBuffer();
+        }
+        return 1;
+    }
+    else
+    {
+        emptyBuffer();
+        return 0;
+    }
 }
