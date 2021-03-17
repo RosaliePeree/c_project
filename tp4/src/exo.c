@@ -94,13 +94,31 @@ void afficherContacts(){
 }
 
 void triContacts(){
-	for(int i = 0; i<taille; i++){
-
+	for(int i=0;i<taille-1;i=i+1){
+		int min=i;
+		int datemin=(carnet[i].naissance.annee*10000)+(carnet[i].naissance.mois*100)+carnet[i].naissance.jour;
+		for(int j=i+1;j<taille;j=j+1){
+			int datej=(carnet[j].naissance.annee*10000)+(carnet[j].naissance.mois*100)+carnet[j].naissance.jour;
+			if(datej<datemin){
+				min=j;
+				datemin=datej;
+			}
+		}
+		personne tmp=carnet[i];
+		carnet[i]=carnet[min];
+		carnet[min]=tmp;
 	}
 }
 
 void rechercheContact(){
-
+	printf("Entrez le nom du contact recherche : ");
+	char nom[20];
+	read(nom, 19);
+	for(int i=0;i<taille;i=i+1){
+		if(strcmp(nom,carnet[i].nom)==0){
+			afficherContact(i);
+		}
+	}
 }
 
 void suppressionContact(){
