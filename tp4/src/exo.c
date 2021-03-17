@@ -1,24 +1,20 @@
-/*
- * tp4.c
- *
- *  Created on: 10 mars 2021
- *      Author: ycott
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "exo.h"
 
 typedef struct{
 	int jour;
 	int mois;
 	int annee;
-}date;
+} date;
 
 typedef struct {
 	char nom[20];
 	char prenom[20];
 	date naissance;
 } personne;
+
 
 personne carnet[20];
 int taille=0;
@@ -28,7 +24,9 @@ int afficherMenu(){
 	while(choice<0 || choice >6){
 			printf("Menu :\n1: Nouveau contact\n2: Affichage des contacts\n3: Tri des contacts\n");
 			printf("4: Recherche de Contact\n5: Supression d'un contact\n0: Quitter\n");
-			scanf("%i", &choice);
+			char tmp[3];
+			read(tmp, 2);
+			choice = atoi(tmp);
 	}
 	return choice;
 }
@@ -43,16 +41,32 @@ void nouveauContact(){
 		int jour;
 		int mois;
 		int annee;
+		char tmp[6];
 		printf("Entrez le nom du contact : ");
-		scanf("%20s",&nom);
+		read(nom, 19);
 		printf("Entrez le prenom du contact : ");
-		scanf("%20s",&prenom);
-		printf("Entrez le jour de naissance du contact : ");
-		scanf("%i",&jour);
-		printf("Entrez le mois de naissance du contact : ");
-		scanf("%i",&mois);
-		printf("Entrez l'annee de naissance du contact : ");
-		scanf("%i",&annee);
+		read(prenom, 19);
+		do	{	
+		printf("Entrez le jour de naissance du contact format dd : ");
+		read(tmp, 3);	
+		jour = atoi(tmp);
+		} while (jour<1 || jour>31);
+
+		do	{	
+		printf("Entrez le mois de naissance du contact format mm : ");
+		read(tmp, 3);	
+		mois = atoi(tmp);
+		} while (mois<1 || mois>12);
+
+		do	{	
+		printf("Entrez l'annee de naissance du contact format yyyy : ");
+		read(tmp, 4);	
+		annee = atoi(tmp);
+		} while (annee<1900 || annee>2022);
+
+
+		read(tmp, 5);
+		annee = atoi(tmp);
 		date anniv;
 		anniv.jour=jour;
 		anniv.mois=mois;
@@ -80,7 +94,9 @@ void afficherContacts(){
 }
 
 void triContacts(){
-	for(int i=0;)
+	for(int i = 0; i<taille; i++){
+
+	}
 }
 
 void rechercheContact(){
@@ -90,7 +106,9 @@ void rechercheContact(){
 void suppressionContact(){
 	int id;
 	printf("Entrez le numero du contact : ");
-	scanf("%i",&id);
+	char tmp[3];
+	read(tmp, 2);
+	id = atoi(tmp);	
 	if(id>taille-1){
 		printf("Contact inexistant\n");
 	}
@@ -102,28 +120,35 @@ void suppressionContact(){
 	}
 }
 
-int main(){
-	int choix=-1;
-	while(choix!=0){
-		choix=afficherMenu();
-		switch(choix){
-		case 0:
-			break;
-		case 1:
-			nouveauContact();
-			break;
-		case 2:
-			afficherContacts();
-			break;
-		case 3:
-			triContacts();
-			break;
-		case 4:
-			rechercheContact();
-			break;
-		case 5:
-			suppressionContact();
-			break;
-		}
-	}
+
+void emptyBuffer(){
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
+ 
+int read(char *chain, int length)
+{
+    char *entry = NULL;
+ 
+    if (fgets(chain, length, stdin) != NULL)
+    {
+        entry = strchr(chain, '\n');
+        if (entry != NULL)
+        {
+            *entry = '\0';
+        }
+        else
+        {
+            emptyBuffer();
+        }
+        return 1;
+    }
+    else
+    {
+        emptyBuffer();
+        return 0;
+    }
 }

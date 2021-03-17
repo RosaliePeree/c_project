@@ -1,24 +1,34 @@
 # makefile
 HOME= .
-BIN= $(HOME)/bin
+BIN = $(HOME)/bin/$(ARCH)
 SRC= $(HOME)/src
+OBJ= $(HOME)/obj
+ARCH = $(shell uname -s)-$(shell uname -m)
+
 
 #DEFS= -DDEBUG
-CFLAG = -Wall -o
-CC= gcc
+CFLAGS = -g -Wall
+CC = gcc
+LD = gcc
+LDFLAGS = -lm
 RM = rm
 
-OBJS    = exo1 exo2-1 exo-2 exo2-3
+SRCS = $(wildcard $(SRC)/*.c)
+OBJS = $(patsubst $(SRC)/%.c,%,$(SRCS))
 
-all: $(OBJS)
+all: $(OBJS) clean
+	@echo All good!
 
-%: $(SRC)/%.c $(BIN)
-	@echo --- Compile ---
-	$(CC) $< $(CFLAG) $(BIN)/$@
-	
-$(BIN):
-	mkdir $@
+%: %.o
+	@echo --- Linking ---
+	$(LD) $(LDFLAGS) $(BIN)/$< -o $(BIN)/$@
+
+# Cible générique d'un objet
+%.o: $(SRC)/%.c
+	@echo --- Compiling .c---
+	@[ -d $(BIN) ] || mkdir -p $(BIN)
+	$(CC) $(CFLAGS) $(DEFS) -c $< -o $(BIN)/$@
 
 clean : 
-	@echo --- Nettoyage des fichiers temporaires --- 
-	@-$(RM) $(BIN)/*
+	@echo --- Clean up temporary files --- 
+	@-$(RM) $(BIN)/*.o

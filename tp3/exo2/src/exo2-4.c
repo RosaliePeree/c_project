@@ -19,12 +19,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "exo2-4.h"
 
-void affiche_hello(){
-	printf("%s\n", "Hello world");
-}
 
 int main(){
 	affiche_hello();
 }
 
+void affiche_hello(){
+	printf("%s\n", "Hello world");
+}

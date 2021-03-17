@@ -1,3 +1,5 @@
+#include "degre.h"
+
 float CelsiusAKelvin(float cels){
 	return cels+273;
 }

@@ -1,15 +1,6 @@
-/*
- * exo2.c
- *
- *  Created on: 9 mars 2021
- *      Author: ycott
- */
 #include <stdio.h>
 #include <stdlib.h>
-
-int horloge(int hours, int minutes, int seconds){
-	return hours*3600+minutes*60+seconds;
-}
+#include "exo.h"
 
 int main(){
 	int hours;
@@ -23,4 +14,3 @@ int main(){
 	scanf("%i",&seconds);
 	printf("\nTotal : %i seconds\n",horloge(hours,minutes,seconds));
 }
-

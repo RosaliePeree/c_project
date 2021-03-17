@@ -5,13 +5,9 @@
  *      Author: ycott
  */
 
-#ifndef EXO4_SRC_DEGRE_H_
-#define EXO4_SRC_DEGRE_H_
-
-float CelsiusAKelvin(float cels);
-float CelsiusAFahrenheit(float cels);
-float FahrenheitAKelvin(float fahr);
-float FahrenheitACelsius(float fahr);
-float KelvinACelsius(float kelv);
-float KelvinAFahrenheit(float kelv);
-#endif /* EXO4_SRC_DEGRE_H_ */
+float CelsiusAKelvin(float);
+float CelsiusAFahrenheit(float);
+float FahrenheitAKelvin(float);
+float FahrenheitACelsius(float);
+float KelvinACelsius(float);
+float KelvinAFahrenheit(float);

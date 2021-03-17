@@ -1,0 +1,1 @@
+int horloge(int, int, int);
