@@ -113,7 +113,53 @@ void rechercheContact(){
 	for(int i=0;i<taille;i=i+1){
 		if(strcmp(nom,carnet[i].nom)==0){
 			afficherContact(i);
-		}
+			int choice=-1;
+			while(choice>1 || choice<0){
+				printf("Voulez-vous modifier le contact ? 1 : Oui 0 : Non\n");
+				char tmp[3];
+				read(tmp, 2);
+				choice = atoi(tmp);
+			}
+			if(choice==1){
+				char nom[20];
+				char prenom[20];
+				int jour;
+				int mois;
+				int annee;
+				char tmp[6];
+				printf("Entrez le nom du contact : ");
+				read(nom, 19);
+				printf("Entrez le prenom du contact : ");
+				read(prenom, 19);
+				do	{
+				printf("Entrez le jour de naissance du contact format dd : ");
+				read(tmp, 3);
+				jour = atoi(tmp);
+				} while (jour<1 || jour>31);
+
+				do	{
+				printf("Entrez le mois de naissance du contact format mm : ");
+				read(tmp, 3);
+				mois = atoi(tmp);
+				} while (mois<1 || mois>12);
+
+				do	{
+				printf("Entrez l'annee de naissance du contact format yyyy : ");
+				read(tmp, 5);
+				annee = atoi(tmp);
+				} while (annee<1900 || annee>2022);
+				date anniv;
+				anniv.jour=jour;
+				anniv.mois=mois;
+				anniv.annee=annee;
+				personne nouveau;
+				strcpy(nouveau.nom,nom);
+				strcpy(nouveau.prenom,prenom);
+				nouveau.naissance=anniv;
+				carnet[i]=nouveau;
+			}
+}
+
 	}
 }
 
