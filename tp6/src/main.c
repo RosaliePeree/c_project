@@ -29,7 +29,6 @@ int main(){
 			newEntry(list);
 			break;
 		case 3:
-			
 			tmp = removeEntry(list);
 			list = tmp;
 			break;
